@@ -12,7 +12,6 @@ import PinLayout
 final class MenuViewController: UIViewController {
 	private let output: MenuViewOutput
     private let tableView = UITableView()
-
     init(output: MenuViewOutput) {
         self.output = output
 
@@ -32,6 +31,7 @@ final class MenuViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         view.addSubview(tableView)
+        output.didLoadView()
 	}
     
     override func viewDidLayoutSubviews() {
@@ -43,12 +43,16 @@ final class MenuViewController: UIViewController {
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // change that for sure
+        let numberOfItems = output.countItems()
+        return numberOfItems
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath)
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath) as? MovieViewCell else {
+                return .init()
+            }
+        let item = output.getItemById(id: indexPath.row)
+        cell.configure(with: item)
         return cell
     }
     
@@ -59,4 +63,11 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 extension MenuViewController: MenuViewInput {
+    func reloadData() {
+        
+        self.tableView.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
+    }
+    
+    
 }

@@ -16,8 +16,8 @@ final class MovieViewCell: UITableViewCell {
     private let yearLabel = UILabel()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
         
-        backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {
@@ -26,7 +26,7 @@ final class MovieViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setup()
+        
         contentView.pin
                     .horizontally(12)
                     .vertically(18)
@@ -40,17 +40,18 @@ final class MovieViewCell: UITableViewCell {
         
         titleLabel.pin
                     .top(40)
-                    .right(50)
+                    .right(5)
                     .height(20)
                     .sizeToFit(.height)
         ratingLabel.pin
-                    .below(of: titleLabel, aligned: .center)
-                    .marginTop(50)
+                    .below(of: titleLabel)
+                    .right(5)
+                    .marginTop(2)
                     .height(20)
                     .sizeToFit(.height)
         yearLabel.pin
-                    .below(of: ratingLabel, aligned: .center)
-                    .marginTop(50)
+                    .bottom(10)
+                    .right(5)
                     .height(20)
                     .sizeToFit(.height)
     }
@@ -59,14 +60,8 @@ final class MovieViewCell: UITableViewCell {
         titleLabel.font = UIFont(name: "NotoSansOriya-Bold", size: 20)
         ratingLabel.font = UIFont(name: "NotoSansOriya", size: 20)
         yearLabel.font = UIFont(name: "NotoSansOriya", size: 20)
-        
-        titleLabel.text = "Ass Movie"
-        ratingLabel.text = "4.3"
-        yearLabel.text = "1996"
-        //let largeConfig = UIImage.SymbolConfiguration(pointSize: 140, weight: .bold, scale: .large)
         imageLogoView.image = UIImage(systemName: "doc.circle.fill")
         imageLogoView.tintColor = .blue
-        //imageLogoView.contentMode = .scaleToFill
         
         
         backgroundColor = UIColor.white
@@ -79,6 +74,14 @@ final class MovieViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor.white
         
         [titleLabel, ratingLabel, yearLabel, imageLogoView].forEach { contentView.addSubview($0) }
+    }
+    
+    func configure(with model: MovieViewModel) {
+        titleLabel.text = "\(model.title)"
+        ratingLabel.text = "Rating: \(model.voteAverage)/10"
+        yearLabel.text = "Released on: " + model.releaseDate
+        
+        
     }
     
     
