@@ -17,6 +17,7 @@ struct MovieViewModel {
     let voteAverage: Double
     let voteCount: Int
     let releaseDate: String
+    let image: UIImage
 
     
 }

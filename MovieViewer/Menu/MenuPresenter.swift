@@ -22,16 +22,7 @@ final class MenuPresenter {
         self.router = router
         self.interactor = interactor
     }
-    
-    private func viewModel(from model: MovieInfo) -> MovieViewModel {
-        return MovieViewModel(id: model.movieId,
-                              title: model.title,
-                              posterPath: model.profilImage,
-                              overview: model.overview,
-                              voteAverage: model.vote_average,
-                              voteCount: model.vote_count,
-                              releaseDate: model.releaseDate)
-    }
+
 }
 
 extension MenuPresenter: MenuModuleInput {
@@ -55,9 +46,8 @@ extension MenuPresenter: MenuViewOutput {
 extension MenuPresenter: MenuInteractorOutput {
 
     
-    func didLoad(movies: [MovieInfo]) {
-        self.items = movies.map{ viewModel(from: $0) }
-        
+    func didLoad(movies: [MovieViewModel]) {
+        self.items = movies
         self.view?.reloadData()
     }
     

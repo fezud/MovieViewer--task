@@ -31,7 +31,7 @@ protocol MenuInteractorInput: class {
 }
 
 protocol MenuInteractorOutput: class {
-    func didLoad(movies: [MovieInfo])
+    func didLoad(movies: [MovieViewModel])
     func didRecieve(error: Error)
 }
 

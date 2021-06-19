@@ -32,39 +32,48 @@ final class MovieViewCell: UITableViewCell {
                     .vertically(18)
         
         imageLogoView.pin
-                        .width(100)
-                        .vertically(10)
+                        .width(150)
+                        .vertically(5)
                         .left(10)
-                        .vCenter()
+        
         imageLogoView.contentMode = .scaleAspectFit
         
         titleLabel.pin
-                    .top(40)
-                    .right(5)
-                    .height(20)
-                    .sizeToFit(.height)
+                    .top(30)
+                    .right(10)
+                    .width(200)
+            .sizeToFit(.width)
+        
         ratingLabel.pin
                     .below(of: titleLabel)
-                    .right(5)
-                    .marginTop(2)
+                    .right(10)
+                    .marginTop(10)
                     .height(20)
                     .sizeToFit(.height)
         yearLabel.pin
-                    .bottom(10)
-                    .right(5)
-                    .height(20)
-                    .sizeToFit(.height)
+                    .bottom(5)
+                    .right(10)
+                    .height(100)
+            .sizeToFit(.height)
+
     }
     
     private func setup() {
         titleLabel.font = UIFont(name: "NotoSansOriya-Bold", size: 20)
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        titleLabel.textAlignment = .right
+        
         ratingLabel.font = UIFont(name: "NotoSansOriya", size: 20)
+        
         yearLabel.font = UIFont(name: "NotoSansOriya", size: 20)
-        imageLogoView.image = UIImage(systemName: "doc.circle.fill")
-        imageLogoView.tintColor = .blue
+        yearLabel.numberOfLines = 0
+        yearLabel.textAlignment = .right
         
         
-        backgroundColor = UIColor.white
+        
+        
+        backgroundColor = UIColor.gray
         
         contentView.layer.shadowColor = UIColor.black.cgColor
         contentView.layer.shadowRadius = 3
@@ -78,8 +87,13 @@ final class MovieViewCell: UITableViewCell {
     
     func configure(with model: MovieViewModel) {
         titleLabel.text = "\(model.title)"
+        
         ratingLabel.text = "Rating: \(model.voteAverage)/10"
-        yearLabel.text = "Released on: " + model.releaseDate
+        
+        yearLabel.text = "Release date:\n" + model.releaseDate
+        
+        imageLogoView.image = model.image
+
         
         
     }

@@ -30,6 +30,7 @@ final class MenuViewController: UIViewController {
         tableView.register(MovieViewCell.self, forCellReuseIdentifier: "MovieViewCell")
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .gray
         view.addSubview(tableView)
         output.didLoadView()
 	}
