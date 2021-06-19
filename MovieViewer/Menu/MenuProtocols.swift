@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 protocol MenuModuleInput {
 	var moduleOutput: MenuModuleOutput? { get }
@@ -25,6 +24,7 @@ protocol MenuViewOutput: AnyObject {
     func countItems() -> Int
     func getItemById(id: Int) -> MovieViewModel
     func didPullRefesh()
+    func didSelectMovie(at id: Int)
 }
 
 protocol MenuInteractorInput: AnyObject {
@@ -37,4 +37,5 @@ protocol MenuInteractorOutput: AnyObject {
 }
 
 protocol MenuRouterInput: AnyObject {
+    func showMovie(model: MovieViewModel)
 }

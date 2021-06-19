@@ -50,6 +50,7 @@ final class MovieViewCell: UITableViewCell {
                     .marginTop(10)
                     .height(20)
                     .sizeToFit(.height)
+        
         yearLabel.pin
                     .bottom(5)
                     .right(10)

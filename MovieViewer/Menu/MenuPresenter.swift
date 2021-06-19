@@ -29,6 +29,12 @@ extension MenuPresenter: MenuModuleInput {
 }
 
 extension MenuPresenter: MenuViewOutput {
+    func didSelectMovie(at id: Int) {
+        router.showMovie(model: items[id])
+    }
+    
+
+    
     func didPullRefesh() {
         interactor.observeItems()
     }

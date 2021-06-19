@@ -73,6 +73,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         return 300
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.didSelectMovie(at: indexPath.row)
+    }
+    
     
 }
 extension MenuViewController: MenuViewInput {

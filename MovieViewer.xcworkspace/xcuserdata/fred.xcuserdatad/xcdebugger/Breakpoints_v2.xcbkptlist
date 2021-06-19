@@ -318,9 +318,9 @@
             filePath = "MovieViewer/Menu/MenuPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "didRecieve(error:)"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "didLoad(movies:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -433,6 +433,22 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "observeItems()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCFB057D-EFE8-4A1D-9013-0F33C4F430DA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieViewer/Menu/MenuRouter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "showMovie(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
