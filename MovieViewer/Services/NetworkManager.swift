@@ -94,8 +94,8 @@ final class MovieConverter {
                                                  releaseDate: document.releaseDate,
                                                  image: image!))
                 }
-                catch let error {
-                    debugPrint("\(document.title)")
+                catch let _ {
+                    debugPrint("\(document.movieId): \(document.title)")
                 }
             }
         completion(.success(movies))

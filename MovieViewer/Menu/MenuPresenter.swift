@@ -29,6 +29,10 @@ extension MenuPresenter: MenuModuleInput {
 }
 
 extension MenuPresenter: MenuViewOutput {
+    func didPullRefesh() {
+        interactor.observeItems()
+    }
+    
     func getItemById(id: Int) -> MovieViewModel {
         return items[id]
     }

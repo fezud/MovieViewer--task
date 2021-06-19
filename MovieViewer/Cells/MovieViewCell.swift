@@ -59,21 +59,22 @@ final class MovieViewCell: UITableViewCell {
     }
     
     private func setup() {
-        titleLabel.font = UIFont(name: "NotoSansOriya-Bold", size: 20)
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         titleLabel.textAlignment = .right
         
-        ratingLabel.font = UIFont(name: "NotoSansOriya", size: 20)
+        ratingLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         
-        yearLabel.font = UIFont(name: "NotoSansOriya", size: 20)
+        yearLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         yearLabel.numberOfLines = 0
         yearLabel.textAlignment = .right
         
         
         
         
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.lightGray
         
         contentView.layer.shadowColor = UIColor.black.cgColor
         contentView.layer.shadowRadius = 3

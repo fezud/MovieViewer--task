@@ -30,7 +30,14 @@ final class MenuViewController: UIViewController {
         tableView.register(MovieViewCell.self, forCellReuseIdentifier: "MovieViewCell")
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .gray
+        tableView.backgroundColor = .lightGray
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(didPullRefesh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        
+        
         view.addSubview(tableView)
         output.didLoadView()
 	}
@@ -39,6 +46,11 @@ final class MenuViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         tableView.frame = view.frame
+    }
+    
+    @objc
+    private func didPullRefesh() {
+        output.didPullRefesh()
     }
 }
 

@@ -13,27 +13,28 @@ protocol MenuModuleInput {
 	var moduleOutput: MenuModuleOutput? { get }
 }
 
-protocol MenuModuleOutput: class {
+protocol MenuModuleOutput: AnyObject {
 }
 
-protocol MenuViewInput: class {
+protocol MenuViewInput: AnyObject {
     func reloadData()
 }
 
-protocol MenuViewOutput: class {
+protocol MenuViewOutput: AnyObject {
     func didLoadView()
     func countItems() -> Int
     func getItemById(id: Int) -> MovieViewModel
+    func didPullRefesh()
 }
 
-protocol MenuInteractorInput: class {
+protocol MenuInteractorInput: AnyObject {
     func observeItems()
 }
 
-protocol MenuInteractorOutput: class {
+protocol MenuInteractorOutput: AnyObject {
     func didLoad(movies: [MovieViewModel])
     func didRecieve(error: Error)
 }
 
-protocol MenuRouterInput: class {
+protocol MenuRouterInput: AnyObject {
 }
